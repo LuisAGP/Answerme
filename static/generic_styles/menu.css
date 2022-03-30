@@ -1,0 +1,52 @@
+.menu {
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    padding: .2rem 2rem;
+}
+
+.d-flex{
+    display: flex;
+    align-items: center;
+}
+
+.menu ul{
+    display: flex;
+    padding: 0;
+}
+
+.menu ul li{
+    transition: all .2s ease;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    padding: .4rem 1.4rem;
+    border-radius: .5rem;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.menu ul li:hover{
+    transition: all .2s ease;
+    filter: brightness(1.3);
+}
+
+.brand{
+    margin-right: 5rem;
+    font-size: 1.2rem;
+    color: var(--font-color);
+}
+
+.brand h2{
+    margin: 0;
+}
+
+.brand span{
+    color: var(--primary-color);
+}
+
+.menu-options li{
+    list-style: none;
+    line-height: 2;
+    color: gray;
+    position: relative;
+}

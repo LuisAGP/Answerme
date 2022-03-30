@@ -1,0 +1,135 @@
+:root {
+    --primary-color: rgb(133 167 133);
+    --secondary-color: rgb(46, 89, 138);
+    --font-color: white;
+    --orange: #ff7742;
+    --light-blue: #c3e6ff;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100vh;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: unset;
+}
+
+.content {
+    padding: 0 1rem;
+}
+
+.content-view{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: calc(100% - 71px);
+}
+
+h3{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+pre{
+    padding: 1rem !important;
+    background-color: #fff3d7 !important;
+    font-family: fangsong !important;
+}
+
+/******************************* GENERIC STYLES *******************************/
+
+.border-right{
+    border-right: 1px solid var(--primary-color);
+}
+
+.border-top{
+    border-top: 1px solid var(--primary-color);
+}
+
+.border-left{
+    border-left: 1px solid var(--primary-color);
+}
+
+.border-bottom{
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.border-all{
+    border: 1px solid var(--primary-color);
+}
+
+.btn{
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem 1.2rem;
+    cursor: pointer;
+    filter: brightness(1);
+    transition: all .3s ease;
+}
+
+.btn:hover{
+    transition: all .3s ease;
+    filter: brightness(1.3);
+}
+
+.btn-primary{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary{
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.input-field{
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.input-field input{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: .7rem;
+    padding: .5rem;
+}
+
+.input-field input:focus{
+    outline-style: solid;
+    outline-color: var(--secondary-color);
+    outline-width: thin;
+}
+
+input[type=submit]{
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem 1.2rem;
+    margin-top: 2rem;
+    color: white;
+    cursor: pointer;
+    filter: brightness(1);
+    transition: all .3s ease;
+}
+
+input[type=submit]:hover{
+    transition: all .3s ease;
+    filter: brightness(1.2);
+}
+
+/******************************* GENERIC STYLES *******************************/

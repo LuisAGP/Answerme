@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Questions{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'questions/questions.js' %}"></script>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'questions/questions.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="questions">
+    <div class="header border-bottom">
+        <h3>Ask a question</h3>
+    </div>
+    <div class="content">
+        <form class="form-question" action="{% url 'save_question' %}" method="post" onsubmit="saveQuestion(event)" id="newQuestion-form">
+
+            <div class="form-info">
+                <h4>Title</h4>
+                <small>Try to be specific like you are asking someone in person.</small>
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="What is your question?" id="newQuestion-title" name="title">
+            </div>
+            
+            <div class="form-info">
+                <h4>Body</h4>
+                <small>Include all the information required for answer your question.</small>
+            </div>
+            <div id="editor" class="input-field"></div>
+
+            <div class="form-info">
+                <h4>Labels</h4>
+                <small>Add up to 5 labels related to your question.</small>
+            </div>
+            <div class="input-field search-field">
+                <input type="text" placeholder="Labels" onkeyup="getLabels(this.value);" onblur="hideSelect('newQuestion-labels_list', this);">
+                <div id="newQuestion-labels_list" class="float-select" style="display: none;"></div>
+            </div>
+
+            <div id="newQuestion-selected_labels"></div>
+
+            <input type="submit" value="Save">
+
+        </form>
+    </div>
+</div>
+{% endblock %}
