@@ -114,7 +114,7 @@ function saveQuestion(event){
             url: 'questions/saveQuestion/',
             data: formData,
             success: function(data){
-                if(data.code = 200){
+                if(data.code == 200){
                     window.location = "http://localhost:8100/questions/";
                 }else{
                     console.log(data.message);

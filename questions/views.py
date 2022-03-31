@@ -1,3 +1,4 @@
+from cProfile import label
 from urllib import response
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -13,9 +14,14 @@ def questions(request):
 
 def get_questions(request):
     questions = Question.objects.filter(deleted_at=None)
-    response = queryset_to_json(questions)
+    response = []
 
-    print(response)
+    for i in questions:
+        labels = i.labelsquestion_set.all()
+        for j in labels:
+            print(i, j)
+
+    response = queryset_to_json(questions)
 
     return HttpResponse(json.dumps(response), content_type="application/json")
 
@@ -48,19 +54,22 @@ def save_question(request):
             labels   = data.getlist('labels[]')
             question = Question()
 
+            description = clean_description(data['description'])
+
             question.id_user     = request.user.id
             question.title       = data['title']
-            question.description = data['description'] 
+            question.description = description 
             question.views       = 0
 
             question.save()
 
             for i in labels:
-                label = Label.objects.get(pk=i)
-                lq    = LabelsQuestion()
+                label    = Label.objects.get(pk=i)
+                question = Question.objects.get(pk=question.pk)
+                lq       = LabelsQuestion()
 
-                lq.id_question = question.pk
-                lq.id_label    = label.id_label
+                lq.id_question = question
+                lq.id_label    = label
                 lq.label       = label.name
                 lq.save()
 
@@ -73,3 +82,22 @@ def save_question(request):
 
 
     return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+
+
+
+
+
+'''
+This function clean de HTML code and retrn only the HTML code of the question
+@author Luis GP
+@param String
+@return String
+'''
+def clean_description(description):
+
+    description = str(description).replace('<pre class="ql-syntax"', '<pre class="pre-code"')
+    description = description.replace('<div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div>', "")
+
+    return description
