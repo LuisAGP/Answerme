@@ -1,5 +1,3 @@
-from cProfile import label
-from urllib import response
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
