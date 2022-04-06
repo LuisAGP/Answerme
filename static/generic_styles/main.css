@@ -45,6 +45,11 @@ h3{
     font-weight: 400;
 }
 
+h4{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
 .pre-code{
     padding: 1rem !important;
     background-color: #fff3d7 !important;
@@ -53,6 +58,15 @@ h3{
 }
 
 /******************************* GENERIC STYLES *******************************/
+
+.questions .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    padding: 3rem 1rem;
+    background-color: lemonchiffon;
+}
 
 .border-right{
     border-right: 1px solid var(--primary-color);

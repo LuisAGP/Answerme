@@ -60,20 +60,26 @@ function obtenerQuestions(){
             url: "questions/getQuestions/",
             success: function(data){
 
-                let questions = document.getElementById("questions-content");
+                let questions = document.getElementById("questions-list");
 
                 for(let item of data){
 
-                    let div = document.createElement('div');
-                    div.className = "questions-list";
-
-                    //selected-label
-
+                    let div    = document.createElement('div');
+                    let labels = "";
+                    
+                    for(let i of item.labels){
+                        labels += 
+                        `<div class="selected-label">
+                            <span>${i.label}</span>
+                        </div>`
+                    }
+                    
                     div.innerHTML +=
-                    `<div class="question-item">
-                        <h2 class="question-item-title">${item.title}</h2>
+                    `<div class="question-item border-bottom">
+                        <h4 class="question-item-title">${item.title}</h4>
                         <hr>
-                        <div class="question-item-info"><span>Views: ${item.views}</span><span>Updated at: ${item.updated_at}</span></div>
+                        ${labels}
+                        <div class="question-item-info"><span>Views: <b>${item.views}</b></span><span>Updated at: <b>${item.updated_at}</b></span></div>
                     </div>`;
 
                     questions.append(div);

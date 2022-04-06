@@ -1,11 +1,3 @@
-.questions .header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 3rem;
-    padding: 3rem 1rem;
-}
-
 .form-question{
     margin-top: 2rem;
     padding: 2rem;
@@ -71,14 +63,13 @@
     cursor: pointer;
 }
 
-.questions-list{
+.question-item{
     padding: 1rem 2rem;
+    cursor: pointer;
 }
 
-.question-item{
-    border: 1px solid var(--secondary-color);
-    padding: 1rem;
-    border-radius: .5rem;
+.question-item:hover{
+    background-color: rgb(228, 228, 228);
 }
 
 .question-item p{
