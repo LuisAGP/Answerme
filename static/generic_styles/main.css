@@ -4,6 +4,8 @@
     --font-color: white;
     --orange: #ff7742;
     --light-blue: #c3e6ff;
+    --header-color: #ffe7cb;
+    --font-color-dark: #363636;
 }
 
 body{
@@ -52,20 +54,21 @@ h4{
 
 .pre-code{
     padding: 1rem !important;
-    background-color: #fff3d7 !important;
+    background-color: #ededed !important;
     font-family: fangsong !important;
-    color: gray;
+    color: var(--font-color-dark)
 }
 
 /******************************* GENERIC STYLES *******************************/
 
-.questions .header{
+.header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 3rem;
     padding: 3rem 1rem;
-    background-color: lemonchiffon;
+    background-color: var(--header-color);
+    color: var(--font-color-dark);
 }
 
 .border-right{

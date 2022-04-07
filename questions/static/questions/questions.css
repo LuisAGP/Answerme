@@ -82,3 +82,11 @@
     align-items: center;
     font-size: small;
 }
+
+.questions-info{
+    padding: 0 3rem;
+}
+
+.question-description{
+    padding: .5rem .8rem;
+}

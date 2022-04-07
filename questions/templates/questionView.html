@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Question{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'questions/questions.js' %}"></script>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'questions/questions.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="questions">
+    <div class="header border-bottom">
+        <h3>{{ question.title }}</h3>
+        <a href="{% url 'ask' %}" class="btn btn-secondary">Edit</a>
+    </div>
+    <div class="questions-info" id="questions-info">
+        <p class="question-item-info">
+            <b>Viewed: {{ question.views }}</b>
+            <b>Asked: {{ question.created_at }}</b>
+            <b>last update: {{ question.updated_at }}</b>
+        </p>
+
+        <hr>
+
+        <!-- I********************************** DESCRIPTION *********************************** -->
+        <div class="question-description">
+            {{ question.description | safe }}
+        </div>
+        <!-- E********************************** DESCRIPTION *********************************** -->
+
+        <hr>
+        
+        <!-- I************************************ LABELS ************************************* -->
+        {% for i in labels %}
+            <div class="selected-label">
+                <span>{{ i.label }}</span>
+            </div>
+        {% endfor %}
+        <!-- E************************************ LABELS ************************************* -->
+
+        <hr>
+
+        <!-- I*********************************** ANSWERS ************************************* -->
+        
+        <!-- E*********************************** ANSWERS ************************************* -->
+        <h3>Your Answer</h3><br>
+        <div id="editor" class="input-field"></div>
+    </div>
+
+</div>
+{% endblock %}

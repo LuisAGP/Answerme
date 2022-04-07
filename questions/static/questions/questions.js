@@ -56,6 +56,10 @@ function obtenerQuestions(){
 
     try{
 
+        if(!document.getElementById("questions-list")){
+            return false;
+        }
+
         ajax({
             url: "questions/getQuestions/",
             success: function(data){
@@ -75,7 +79,7 @@ function obtenerQuestions(){
                     }
                     
                     div.innerHTML +=
-                    `<div class="question-item border-bottom">
+                    `<div class="question-item border-bottom" onclick="openQuestion(${item.id_question})">
                         <h4 class="question-item-title">${item.title}</h4>
                         <hr>
                         ${labels}
@@ -99,6 +103,8 @@ function obtenerQuestions(){
     return false;
 
 }
+
+
 
 
 
@@ -248,4 +254,28 @@ function addLabel(label){
 function removeLabel(a){
     a.parentNode.remove();
     return false;
+}
+
+
+
+
+/**
+ * Function to open a question
+ * @author Luis GP
+ * @param {Integer} idQuestion
+ * @return {Boolean}
+ */
+function openQuestion(idQuestion){
+
+    try{
+
+        let url = `${urlBase}questions/questionView/${idQuestion}`;
+        window.location = url;
+
+    }catch(e){
+        console.error(e);
+    }
+
+    return false;
+
 }

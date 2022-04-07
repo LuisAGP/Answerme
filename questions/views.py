@@ -3,7 +3,6 @@ from django.http import HttpResponse
 import json
 from .models import *
 from Answerme.Helpers import queryset_to_json
-import datetime
 
 # Create your views here.
 def questions(request):
@@ -46,6 +45,18 @@ New Questions View
 '''
 def new_question(request):
     return render(request, 'newQuestion.html', {})
+
+
+'''
+View for a question
+@author Luis GP
+'''
+def question_view(request, idQuestion):
+
+    question = Question.objects.get(id_question=idQuestion)
+    labels   = LabelsQuestion.objects.filter(id_question=idQuestion)
+
+    return render(request, 'questionView.html', {'question': question, 'labels': labels})
 
 
 
@@ -126,8 +137,8 @@ This function clean de HTML code and retrn only the HTML code of the question
 def clean_description(description):
 
     description = str(description).replace('<pre class="ql-syntax"', '<pre class="pre-code"')
+    description = description.replace('<div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div>', "")
     description = description.replace('contenteditable="true"', '')
     description = description.replace('class="ql-editor"', '')
-    description = description.replace('<div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div>', "")
 
     return description
