@@ -255,27 +255,3 @@ function removeLabel(a){
     a.parentNode.remove();
     return false;
 }
-
-
-
-
-/**
- * Function to open a question
- * @author Luis GP
- * @param {Integer} idQuestion
- * @return {Boolean}
- */
-function openQuestion(idQuestion){
-
-    try{
-
-        let url = `${urlBase}questions/questionView/${idQuestion}`;
-        window.location = url;
-
-    }catch(e){
-        console.error(e);
-    }
-
-    return false;
-
-}

@@ -8,5 +8,6 @@ class Answer(models.Model):
     id_question = models.ForeignKey(Question, on_delete=models.CASCADE)
     description = models.TextField()
     votes       = models.IntegerField()
+    is_solution = models.BooleanField(default=False)
     user_name   = models.CharField(max_length=255)
 

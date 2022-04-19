@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
+
 from .models import *
+from answers.models import Answer
 from Answerme.Helpers import queryset_to_json
 
 # Create your views here.
@@ -48,15 +50,16 @@ def new_question(request):
 
 
 '''
-View for a question
+Details for a question
 @author Luis GP
 '''
-def question_view(request, idQuestion):
+def question_details(request, idQuestion):
 
     question = Question.objects.get(id_question=idQuestion)
     labels   = LabelsQuestion.objects.filter(id_question=idQuestion)
+    ans      = Answer.objects.filter(id_question=question.id_question)
 
-    return render(request, 'questionView.html', {'question': question, 'labels': labels})
+    return render(request, 'questionDetails.html', {'question': question, 'labels': labels, 'answers': ans, 'id_user': request.user.id})
 
 
 

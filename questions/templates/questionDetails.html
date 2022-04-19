@@ -15,13 +15,16 @@
 <div class="questions">
     <div class="header border-bottom">
         <h3>{{ question.title }}</h3>
+        {% if question.id_user == id_user %}
         <a href="{% url 'ask' %}" class="btn btn-secondary">Edit</a>
+        {% endif %}
     </div>
     <div class="questions-info" id="questions-info">
         <p class="question-item-info">
             <b>Viewed: {{ question.views }}</b>
             <b>Asked: {{ question.created_at }}</b>
-            <b>last update: {{ question.updated_at }}</b>
+            <b>Last update: {{ question.updated_at }}</b>
+            <b>Status: {{ question.get_status }}</b>
         </p>
 
         <hr>
@@ -46,9 +49,24 @@
 
         <!-- I*********************************** ANSWERS ************************************* -->
         
+        <h3>Answers</h3><br>
+        {% if answers %}
+
+        {% else %}
+            <p class="no-answers">There are not answers yet... do the first one</p>
+        {% endif %}
+
         <!-- E*********************************** ANSWERS ************************************* -->
-        <h3>Your Answer</h3><br>
+
+        <hr>
+
+        <!-- I************************************ EDITOR ************************************* -->
+        
+        <h3>Type an answear</h3><br>
         <div id="editor" class="input-field"></div>
+
+        <!-- E************************************ EDITOR ************************************* -->
+        
     </div>
 
 </div>
