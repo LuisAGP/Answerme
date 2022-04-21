@@ -127,7 +127,7 @@ function saveQuestion(event){
             data: formData,
             success: function(data){
                 if(data.code == 200){
-                    window.location = "http://localhost:8100/questions/";
+                    window.location = `${urlBase}questions`;
                 }else{
                     console.log(data.message);
                 }
@@ -254,4 +254,88 @@ function addLabel(label){
 function removeLabel(a){
     a.parentNode.remove();
     return false;
+}
+
+
+
+
+
+/**
+ * This function save a new Answer
+ * @author Luis GP
+ * @return {Boolean}
+ */
+function saveAnswer(){
+
+    try {
+        
+        let idQuestion = document.getElementById('question-id').value;
+        let formData = new FormData();
+        formData.append('id_question', idQuestion);
+        formData.append('description', quill.container.innerHTML);
+
+        ajax({
+            url: 'answers/saveAnswer/',
+            data: formData,
+            success: function(data){
+                if(data.code == 200){
+                    quill.container.innerHTML = "";
+                    alert(data.message);
+                    getAnswers(idQuestion);
+                }else{
+                    console.log(data.message);
+                }
+            },
+            error: function(error){
+                console.error(error);
+            }
+        });
+
+    } catch (error) {
+        console.error(e);
+    }
+
+    return false;
+
+}
+
+
+
+
+
+/**
+ * Function to get all answers for a question
+ * @author Luis GP
+ * @return {Boolean}
+ */
+function getAnswers(idQuestion){
+
+    try {
+        
+        ajax({
+            url: 'answers/getAnswer/',
+            data: {
+                id_question: idQuestion
+            },
+            success: function(data){
+                if(data.code == 200){
+                    let answersList = document.getElementById('answers-list');
+                    answersList.getElementsByClassName('no-answers')[0].remove();
+                    // Add Answers
+                    console.log(data)
+                }else{
+                    console.log(data.message);
+                }
+            },
+            error: function(error){
+                console.error(error);
+            }
+        });
+
+    } catch (error) {
+        console.error(e);
+    }
+
+    return false;
+
 }

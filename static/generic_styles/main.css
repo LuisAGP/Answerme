@@ -1,5 +1,6 @@
 :root {
     --primary-color: rgb(133 167 133);
+    --primary-border-color: #d6d9dc;
     --secondary-color: rgb(46, 89, 138);
     --font-color: white;
     --orange: #ff7742;
@@ -55,8 +56,8 @@ h4{
 .pre-code{
     padding: 1rem !important;
     background-color: #ededed !important;
-    font-family: fangsong !important;
-    color: var(--font-color-dark)
+    font-family: monospace !important;
+    color: var(--font-color-dark);
 }
 
 /******************************* GENERIC STYLES *******************************/
@@ -72,23 +73,23 @@ h4{
 }
 
 .border-right{
-    border-right: 1px solid var(--primary-color);
+    border-right: 1px solid var(--primary-border-color);
 }
 
 .border-top{
-    border-top: 1px solid var(--primary-color);
+    border-top: 1px solid var(--primary-border-color);
 }
 
 .border-left{
-    border-left: 1px solid var(--primary-color);
+    border-left: 1px solid var(--primary-border-color);
 }
 
 .border-bottom{
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-border-color);
 }
 
 .border-all{
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--primary-border-color);
 }
 
 .btn{
@@ -174,13 +175,15 @@ input[type=submit]:hover{
     padding: 0 3rem;
 }
 
-.question-description{
+.question-description, .answer-description{
     padding: .5rem .8rem;
 }
 
 .no-answers{
     text-align: center;
     color: gray;
+    font-style: italic;
+    margin-top: 0;
 }
 
 .selected-label{
@@ -208,6 +211,40 @@ input[type=submit]:hover{
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
+}
+
+.pd-1{
+    padding: .5rem;
+}
+
+.pd-tb-1{
+    padding: 1rem 0;
+}
+
+.answer-item{
+    margin-bottom: .8rem;
+    border: 1px solid var(--orange);
+}
+
+.cols-2-6{
+    display: grid;
+    grid-template-columns: 8% 92%;
+}
+
+.votes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    fill: rgb(189, 189, 189);
+    color: gray;
+}
+
+.votes path{
+    cursor: pointer;
+}
+
+.iconCheckmarkLg{
+    fill: var(--primary-color);;
 }
 
 /******************************* GENERIC STYLES *******************************/

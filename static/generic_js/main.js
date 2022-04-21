@@ -1,5 +1,5 @@
 
-let urlBase = "http://localhost:8100/";
+let urlBase = window.location.origin + "/";
 
 /**
  * Function to get CSRF token from cookie

@@ -35,7 +35,6 @@
         </div>
         <!-- E********************************** DESCRIPTION *********************************** -->
 
-        <hr>
         
         <!-- I************************************ LABELS ************************************* -->
         {% for i in labels %}
@@ -50,20 +49,51 @@
         <!-- I*********************************** ANSWERS ************************************* -->
         
         <h3>Answers</h3><br>
-        {% if answers %}
-
-        {% else %}
-            <p class="no-answers">There are not answers yet... do the first one</p>
-        {% endif %}
+        <div id="answers-list">
+            {% if answers %}
+                {% for i in answers %}
+                    <div class="answer-item">
+                        <div class="cols-2-6">
+                            <div class="votes">
+                                <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36">
+                                    <path d="M2 25h32L18 9 2 25Z"></path>
+                                </svg>
+                                <h4>{{ i.votes }}</h4>
+                                <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36">
+                                    <path d="M2 11h32L18 27 2 11Z"></path>
+                                </svg>
+                                {% if i.is_solution %}
+                                    <svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36">
+                                        <path d="m6 14 8 8L30 6v8L14 30l-8-8v-8Z"></path>
+                                    </svg>
+                                {% endif %}
+                            </div>
+                            <div class="answer-description">{{ i.description | safe }}</div>
+                        </div>
+                        <small class="pd-1">- {{ i.user_name }}</small>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-answers">There are not answers yet... do the first one</p>
+            {% endif %}
+        </div>
 
         <!-- E*********************************** ANSWERS ************************************* -->
 
         <hr>
 
         <!-- I************************************ EDITOR ************************************* -->
-        
-        <h3>Type an answear</h3><br>
-        <div id="editor" class="input-field"></div>
+
+        <div class="pd-tb-1">
+            <div class="form-info">
+                <h4>Type an answear</h4>
+                <small>Remember to include code example to be more clear in the answer.</small>
+            </div>
+            <input type="hidden" id="question-id" value="{{question.id_question}}">
+            <div id="editor" class="input-field"></div>
+            
+            <a href="#" class="btn btn-secondary" onclick="saveAnswer()">Save answer</a>
+        </div>
 
         <!-- E************************************ EDITOR ************************************* -->
         
