@@ -279,7 +279,7 @@ function saveAnswer(){
             data: formData,
             success: function(data){
                 if(data.code == 200){
-                    quill.container.innerHTML = "";
+                    quill.container.innerHTML = EMPTY_EDITOR;
                     console.log(data.message);
                     getAnswers(idQuestion);
                 }else{
@@ -341,7 +341,7 @@ function getAnswers(idQuestion){
                                 <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36">
                                     <path d="M2 11h32L18 27 2 11Z"></path>
                                 </svg>
-                                ${ i.is_solution ? isSolution : null }
+                                ${ i.is_solution ? isSolution : '' }
                             </div>
                             <div class="answer-description">${ i.description }</div>
                         </div>

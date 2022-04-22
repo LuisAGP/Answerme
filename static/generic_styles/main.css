@@ -56,35 +56,39 @@ h4{
 .pre-code{
     padding: 1rem !important;
     background-color: #484848 !important;
-    color: #9cdcfe;
+    color: #9cdcfe !important;
 }
 
 .hljs-string{
-    color: #ce9178;
+    color: #ce9178 !important;
 }
 
 .hljs-built_in, .function_{
-    color: #dcdcaa;
+    color: #dcdcaa !important;
 }
 
 .hljs-number{
-    color: #b5cea8;
+    color: #b5cea8 !important;
 }
 
 .hljs-keyword, .hljs-name, .hljs-tag{
-    color: #569cd6;
+    color: #569cd6 !important;
 }
 
 .hljs-comment{
-    color: #6a9955;
+    color: #6a9955 !important;
 }
 
 .hljs-variable{
-    color: #9cdcfe;
+    color: #9cdcfe !important;
 }
 
 .hljs-literal{
-    color: #c586c0
+    color: #c586c0 !important;
+}
+
+.hljs-attr{
+    color: #dcdcaa !important;
 }
 
 /******************************* GENERIC STYLES *******************************/

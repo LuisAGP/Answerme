@@ -41,9 +41,9 @@
             <div class="border-right">
                 {% if request.user.is_authenticated %}
                     <ul class="menu-options">
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'questions' %}">Questions</a></li>
-                        <li><a href="{% url 'answers' %}">Answers</a></li>
+                        <li><a href="{% url 'home' %}">All Questions</a></li>
+                        <li><a href="{% url 'questions' %}">My Questions</a></li>
+                        <li><a href="{% url 'answers' %}">My Answers</a></li>
                     </ul> 
                 {% endif %}
             </div>
