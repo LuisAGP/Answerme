@@ -28,8 +28,8 @@ window.onload = function(e){
 
             quill = new Quill('#editor', {
                 modules: {
-                  syntax: true,     // Include syntax module
-                  toolbar: options  // Include button in toolbar
+                    syntax: true,     // Include syntax module
+                    toolbar: options  // Include button in toolbar
                 },
                 theme: 'snow'
             });
@@ -280,7 +280,7 @@ function saveAnswer(){
             success: function(data){
                 if(data.code == 200){
                     quill.container.innerHTML = "";
-                    alert(data.message);
+                    console.log(data.message);
                     getAnswers(idQuestion);
                 }else{
                     console.log(data.message);
@@ -320,9 +320,37 @@ function getAnswers(idQuestion){
             success: function(data){
                 if(data.code == 200){
                     let answersList = document.getElementById('answers-list');
-                    answersList.getElementsByClassName('no-answers')[0].remove();
-                    // Add Answers
-                    console.log(data)
+                    answersList.innerHTML = "";
+                    
+                    for(let i of data.answers){
+
+                        let div = document.createElement('div');
+                        let isSolution = 
+                        `<svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36">
+                            <path d="m6 14 8 8L30 6v8L14 30l-8-8v-8Z"></path>
+                        </svg>`;
+
+                        div.className = "answer-item";
+                        div.innerHTML += 
+                        `<div class="cols-2-6">
+                            <div class="votes">
+                                <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36">
+                                    <path d="M2 25h32L18 9 2 25Z"></path>
+                                </svg>
+                                <h4>${ i.votes }</h4>
+                                <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36">
+                                    <path d="M2 11h32L18 27 2 11Z"></path>
+                                </svg>
+                                ${ i.is_solution ? isSolution : null }
+                            </div>
+                            <div class="answer-description">${ i.description }</div>
+                        </div>
+                        <small class="pd-1">- ${ i.user_name }</small>`;
+
+                        answersList.append(div);
+
+                    }
+
                 }else{
                     console.log(data.message);
                 }
