@@ -209,7 +209,7 @@ input[type=submit]:hover{
 .question-description, .answer-description{
     padding: .5rem .8rem;
     background-color: #e4e4e4;
-    margin: .5rem;
+    margin: .5rem 0;
 }
 
 .no-answers{
@@ -246,6 +246,14 @@ input[type=submit]:hover{
     cursor: pointer;
 }
 
+.m-0{
+    margin: 0;
+}
+
+.m-l-1{
+    margin-left: .8rem;
+}
+
 .pd-1{
     padding: .5rem;
 }
@@ -254,9 +262,18 @@ input[type=submit]:hover{
     padding: 1rem 0;
 }
 
+.right{
+    text-align: right;
+}
+
 .answer-item{
-    margin-bottom: .8rem;
-    border: 1px solid var(--orange);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--primary-border-color);
+    padding: .5rem 0;
+}
+
+.answer-item:last-child{
+    border: none;
 }
 
 .cols-2-6{

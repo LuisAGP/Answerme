@@ -70,7 +70,8 @@
                             </div>
                             <div class="answer-description">{{ i.description | safe }}</div>
                         </div>
-                        <small class="pd-1">- {{ i.user_name }}</small>
+                        <p class="right m-0"><small class="m-l-1">{{ i.updated_at|date:"d/m/Y" }}</small></p>
+                        <p class="right m-0"><small>- {{ i.user_name }}</small></p>
                     </div>
                 {% endfor %}
             {% else %}
@@ -92,7 +93,7 @@
             <input type="hidden" id="question-id" value="{{question.id_question}}">
             <div id="editor" class="input-field"></div>
             
-            <a href="#" class="btn btn-secondary" onclick="saveAnswer()">Save answer</a>
+            <a href="#" class="btn btn-secondary" onclick="saveAnswer()">Post Answer</a>
         </div>
 
         <!-- E************************************ EDITOR ************************************* -->

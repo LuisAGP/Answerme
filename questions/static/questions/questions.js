@@ -345,7 +345,8 @@ function getAnswers(idQuestion){
                             </div>
                             <div class="answer-description">${ i.description }</div>
                         </div>
-                        <small class="pd-1">- ${ i.user_name }</small>`;
+                        <p class="right m-0"><small class="m-l-1">${ i.updated_at }</small></p>
+                        <p class="right m-0"><small>- ${ i.user_name }</small></p>`;
 
                         answersList.append(div);
 
