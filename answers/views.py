@@ -77,6 +77,10 @@ def get_answers(request):
 
 
 
+'''
+Function to save a vote up
+@author Luis GP
+'''
 def vote_up(request):
 
     response = {'code': 500}
@@ -124,7 +128,10 @@ def vote_up(request):
 
 
 
-
+'''
+Function to save a vote down
+@author Luis GP
+'''
 def vote_down(request):
 
     response = {'code': 500}
