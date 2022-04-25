@@ -204,7 +204,7 @@ function hideSelect(idSelect, input){
     let timer = setTimeout(() => {
         clearTimeout(timer)
         document.getElementById(idSelect).style.display = "none";
-    }, 100);
+    }, 250);
      
 }
 
