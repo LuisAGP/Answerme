@@ -155,6 +155,15 @@ def vote_down(request):
         user_vote.negative_vote = True
         user_vote.save()
 
+
+    if answer.id_question.id_user == request.user.id: # This case is the solution
+        if answer.id_question.id_solution:
+            answer.id_question.id_solution = None
+            answer.id_question.save()
+
+        answer.is_solution = False
+        answer.save()
+
     answer.recalculate_votes()
 
     response = {'code': 200}
