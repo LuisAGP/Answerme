@@ -11,6 +11,7 @@ class Question(models.Model):
     
     id_question = models.AutoField(primary_key=True)
     id_user     = models.IntegerField()
+    id_solution = models.IntegerField(null=True, blank=True)
     title       = models.CharField(max_length=255)
     description = models.TextField()
     views       = models.IntegerField()

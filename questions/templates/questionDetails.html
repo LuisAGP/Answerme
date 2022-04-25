@@ -5,6 +5,10 @@
 
 {% block scripts %}
     <script src="{% static 'questions/questions.js' %}"></script>
+    <script src="{% static 'answers/answers.js' %}"></script>
+    <script>
+        let idQuestion = '{{ question.id_question }}';
+    </script>
 {% endblock %}
 
 {% block style %}
@@ -56,11 +60,11 @@
                         <div class="cols-2-6">
                             <div class="votes">
                                 <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36">
-                                    <path d="M2 25h32L18 9 2 25Z"></path>
+                                    <path d="M2 25h32L18 9 2 25Z" onclick="voteUp('{{ i.pk }}')"></path>
                                 </svg>
-                                <h4>{{ i.votes }}</h4>
+                                <h4>{{ i.total_votes }}</h4>
                                 <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36">
-                                    <path d="M2 11h32L18 27 2 11Z"></path>
+                                    <path d="M2 11h32L18 27 2 11Z" onclick="voteDown('{{ i.pk }}')"></path>
                                 </svg>
                                 {% if i.is_solution %}
                                     <svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36">
