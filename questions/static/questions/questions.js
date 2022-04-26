@@ -231,10 +231,8 @@ function addLabel(label){
         input.value = label.id_label;
         input.type = "hidden";
 
-
         div.append(input);
         container.append(div);
-
 
     }catch(e){
         console.error(e)
