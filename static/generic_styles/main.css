@@ -57,6 +57,7 @@ h4{
     padding: 1rem !important;
     background-color: #484848 !important;
     color: #9cdcfe !important;
+    overflow-x: auto;
 }
 
 .hljs-string{
