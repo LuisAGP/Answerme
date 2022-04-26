@@ -32,7 +32,7 @@ def save_answer(request):
         new_answer.description = clean_description(data['description'])
         new_answer.id_user     = request.user.id
         new_answer.user_name   = request.user.username
-        new_answer.votes       = 0
+        new_answer.total_votes = 0
 
         new_answer.save()
 
